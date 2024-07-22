@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    /*text-transform: uppercase;*/
+    font-size: 17px;
+}
+
+.form-container {
+    background: transparent;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.card-container {
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    perspective: 1000px;
+    text-transform: uppercase;
+}
+
+.card-container .card .expiration {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-container .card .expiration span {
+    margin: 0 5px;
+}
+
+.card-container .front,
+.card-container .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, blueviolet, deeppink);
+    border-radius: 5px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .2);
+    padding: 20px;
+    transition: transform .4s ease-out;
+}
+
+.card-container .front {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.card-container .back {
+    transform: perspective(1000px) rotateY(180deg);
+    text-align: right;
+}
+
+.card-container .front .image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-container .front .image img {
+    height: 40px;
+}
+
+.card-container .front .image .ntg {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*flex: 1;*/
+    position: center;
+}
+
+.card-container .front .card-number-box {
+    padding: 10px 0;
+    font-size: 15px;
+    color: #fff;
+}
+
+.card-container .front .flexbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-container .front .flexbox .box {
+    font-size: 20px;
+    color: #fff;
+}
+
+.card-container .card .box {
+    font-size: 15px;
+}
+
+.card-container .card .box span {
+    display: block;
+}
+
+.card-container .card .stripe {
+    background: #000;
+    height: 40px;
+    margin: 10px 0;
+}
+
+.card-container .card .cvv-box {
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.card-container .ll {
+    color: #fff;
+    text-align: center;
+}
+
+.inputBox {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.inputBox span {
+    color: #333;
+    font-size: 14px;
+}
+
+.inputBox input,
+.inputBox select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.inputBox input:focus,
+.inputBox select:focus {
+    border-color: #4b79a1;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(45deg, blueviolet, deeppink);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:disabled {
+    background: linear-gradient(45deg, blueviolet, deeppink);
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background: linear-gradient(45deg, blueviolet, deeppink);
+}
+
+.flexbox-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.flexbox-row .inputBox {
+    flex: 1;
+}
+
+.expiration-error{
+    font-size: small;
+    color: red;
+}
+
+.cardNumberErrorMessage{
+    font-size: small;
+    color: red;
+}
+.cvv-error{
+    font-size: small;
+    color: red;
+}
+
+.form-message{
+    font-size: large;
+    font-weight: bold;
+}

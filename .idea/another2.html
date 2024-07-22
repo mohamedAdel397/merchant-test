@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .iframe-container {
+            max-width: 600px; /* Set to 100% to allow scaling */
+            height: 0;
+            padding-bottom: -50%; /* Aspect ratio (change as needed) */
+            position: relative;
+            background-size: cover;
+
+            width: 100%;
+            min-width: 100%;
+        }
+
+            /*height:100%; min-height: 55vh;*/
+
+        /*}*/
+        /*iframe {*/
+        /*    width: 200%; !* Scale width to fit without scroll *!*/
+        /*    height: 200%; !* Scale height accordingly *!*/
+        /*    border: none;*/
+        /*    position: absolute;*/
+        /*    top: 0;*/
+        /*    left: 0;*/
+        /*    transform: scale(0.5); !* Scale down to fit the container *!*/
+        /*    transform-origin: top left; !* Scale origin *!*/
+        /*    overflow: hidden; !* Hide overflow *!*/
+        /*}*/
+    </style>
+</head>
+<body>
+<h2>Table with an Iframe</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+        <th>Header 3</th> <!-- New Header -->
+        <th>Header 4</th> <!-- New Header -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Row 1, Column 1</td>
+        <td>Row 1, Column 2</td>
+        <td>Row 1, Column 3</td> <!-- New cell -->
+        <td>Row 1, Column 4</td> <!-- New cell -->
+    </tr>
+    <tr>
+        <td>
+            <div class="iframe-container">
+                <iframe src="https://mohamedadel397.github.io/iframe_integration/iframe.html"></iframe>
+            </div>
+        </td>
+        <td>
+            <div class="iframe-container">
+                <iframe src="https://mohamedadel397.github.io/iframe_integration/iframe.html"></iframe>
+            </div>
+        </td>
+        <td> <!-- New cell with iframe -->
+            <div class="iframe-container">
+                <iframe src="https://mohamedadel397.github.io/iframe_integration/iframe.html"></iframe>
+            </div>
+        </td>
+
+        <td> <!-- New cell with iframe -->
+            <div class="iframe-container">
+                <iframe src="https://mohamedadel397.github.io/iframe_integration/iframe.html"></iframe>
+            </div>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

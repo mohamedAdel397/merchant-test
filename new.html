@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Page</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .iframe-container {
+            width: 100%;
+            max-width: 600px; /* Adjust this as needed */
+            margin: 0 auto;
+        }
+        iframe {
+            width: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+        <th>Header 3</th> <!-- New Header -->
+        <th>Header 4</th> <!-- New Header -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Row 1, Column 1</td>
+        <td>Row 1, Column 2</td>
+        <td>Row 1, Column 3</td> <!-- New cell -->
+        <td>Row 1, Column 4</td> <!-- New cell -->
+    </tr>
+    <tr>
+        <td>
+            <div class="iframe-container">
+                <iframe id="creditCardIframe1" src="https://mohamedadel397.github.io/iframe_integration/iframe.html" onload="resizeIframe(this)"></iframe>
+            </div>
+        </td>
+        <td>
+            <div class="iframe-container">
+                <iframe id="creditCardIframe2" src="https://mohamedadel397.github.io/iframe_integration/iframe.html" onload="resizeIframe(this)"></iframe>
+            </div>
+        </td>
+        <td> <!-- New cell with iframe -->
+            <div class="iframe-container">
+                <iframe id="creditCardIframe" src="https://mohamedadel397.github.io/iframe_integration/iframe.html" onload="resizeIframe(this)"></iframe>
+            </div>
+        </td>
+
+        <td> <!-- New cell with iframe -->
+            <div class="iframe-container">
+                <iframe src="https://mohamedadel397.github.io/iframe_integration/iframe.html"></iframe>
+            </div>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+<script>
+    function resizeIframe(iframe) {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'resizeIframe') {
+            const iframe = document.getElementById('creditCardIframe');
+            iframe.style.height = event.data.height + 'px';
+        }
+    });
+</script>
+</body>
+</html>

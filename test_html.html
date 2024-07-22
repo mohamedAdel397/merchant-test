@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table with Dynamic Iframes</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .iframe-container {
+            position: relative;
+            height: 100%;
+            min-height: 50vh;
+        }
+        iframe {
+            width: 200%;
+            height: 200%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(0.5);
+            transform-origin: top left;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<h2>Table with an Iframe</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Row 1, Column 1</td>
+        <td>Row 1, Column 2</td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            <div class="iframe-container">
+                <div class="payment-container" id="payment-container-1"></div>
+            </div>
+        </td>
+        <td colspan="1">
+            <div class="iframe-container">
+                <div class="payment-container" id="payment-container-2"></div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const containers = document.querySelectorAll(".payment-container");
+        containers.forEach(container => {
+            if (container) {
+                const iframe = document.createElement("iframe");
+                iframe.src = "https://mohamedadel397.github.io/iframe_integration/iframe.html"; // The URL of the iframe content
+                iframe.width = "100%";
+                iframe.height = "400px"; // Adjust the height as needed
+                iframe.style.border = "none";
+                container.appendChild(iframe);
+            }
+        });
+    });
+
+    window.addEventListener('load', function() {
+        const iframes = document.querySelectorAll('iframe');
+
+        iframes.forEach(iframe => {
+            iframe.onload = function() {
+                const styles = {
+                    '--iframe-bg-color': 'lightblue',
+                    '--iframe-font-color': 'darkblue',
+                    '--form-bg-color': 'white',
+                    '--submit-btn-bg': 'linear-gradient(45deg, green, blue)',
+                    '--submit-btn-font-color': 'yellow'
+                };
+
+                iframe.contentWindow.postMessage({
+                    type: 'updateStyles',
+                    styles: styles
+                }, '*');
+            };
+        });
+    });
+</script>
+
+<script src="https://mohamedadel397.github.io/iframe_integration/iframe.js"></script>
+</body>
+</html>
